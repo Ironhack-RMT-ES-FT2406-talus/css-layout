@@ -1,3 +1,7 @@
+html {
+  font-size: 24px;
+}
+
 body {
   background-color: #55595c;
   margin: 0; /* resets the default 8px from most browsers */
@@ -6,9 +10,17 @@ body {
 
 #main-header {
   background-color: white;
-  color: #a70184;
   padding: 5px 0; /* top&down left&right */
   margin: 20px 5% 20px 5%; /* top right down left */
+}
+
+#main-header h1 span {
+  color: #a70184;
+}
+
+#main-header > span {
+  /* busca los span que sean decendientes directos del header */
+  text-decoration: underline;
 }
 
 .games-container img  {
@@ -22,5 +34,199 @@ body {
   border: 2px solid black; 
   list-style-position: inside; /* moves the bullet point inside the element */
   margin-right: 40px; /* same as native left separation for bullet point */
+}
+
+#access-buttons button {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  cursor: help;
+}
+
+
+#access-buttons button:hover {
+  background-color: #a70184;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+}
+
+#access-buttons button:active {
+  background-color: black;
+  color: white;
+}
+
+/* #brands li:last-child, #brands li:first-child {
+  background-color: #a70184;
+} */
+
+/* #brands li:nth-child(2) {
+  background-color: #a70184;
+} */
+
+#brands li:nth-child(even) {
+  background-color: lightgray;
+}
+
+#brands li::first-letter {
+  color:#a70184;
+  font-size: 20px;
+}
+
+#brands li::marker {
+  /* color: #a70184; */
+  content: "👾 ";
+}
+
+#brands li:hover::after {
+  /* cuando haga hover sobre el li, aparece algo despues */
+  content: "  OFERTA";
+  color: #a70184;
+  font-weight: bold;
+}
+
+
+#access-buttons {
+  background-color: lightgray;
+  height: 100px;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  /* gap: 30px; */
+
+}
+
+
+#games-section, #used-games-section, #brands {
+  background-color: lightgray;
+}
+
+.card {
+  background-color: #2a353e;
+  color: white;
+  width: 200px;
+  height: 380px;
+  margin-bottom: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.games-container {
+  display: flex;
+
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 5px
+}
+
+/* #games-section:hover #patata {
+  order: 0;
+} */
+
+/* #patata {
+  flex-grow: 1;
+}
+
+#tomate {
+  flex-grow: 2;
+} */
+
+.card:hover {
+  flex-grow: 1;
+
+}
+
+.card {
+  /* las transiciones se asignan al elemento y ocurren cuando hay un cambio (cualquier pseudoclase) */
+  transition: flex-grow 0.2s;
+}
+
+#access-buttons {
+  position: sticky;
+  top: 0px
+}
+
+#main-header {
+  position: relative; /* esto lo hago para poder posicionar de forma absoluta elementos internos */
+}
+
+#main-header p {
+  position: absolute;
+  top: 0;
+  right: 20px;
+}
+
+#responsive-container {
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  font-size: 0.7rem;
+}
+
+h1 {
+  font-size: 1.3rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+}
+
+h4 {
+  font-size: 0.9rem;
+}
+
+
+/* .todo lo que hemos hecho hasta ahora funciona para movil y otros dispositivos */
+
+/* creamos condicionales para aplicar estilos especificos para diferentes tamaños */
+
+@media (width > 560px) and (width < 1030px) {
+  /* estos estilos solo aplicaran para pantallas mayores a 560px (Tablets)*/
+
+  body {
+    background-color: aquamarine;
+  }
+
+  #access-buttons {
+    justify-content: center;
+    gap: 10px
+  }
+
+  html {
+    font-size: 32px;
+  }
+
+}
+
+@media (min-width: 1030px) {
+  /* estos estilos solo aplicaran para pantallas mayores a 1030px (PC laptop)*/
+
+  body {
+    background-color: black;
+  }
+
+  /* #access-buttons {
+    justify-content: space-between;
+    gap: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
+  } */
+
+  #responsive-container {
+    flex-direction: row;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
 }
 
